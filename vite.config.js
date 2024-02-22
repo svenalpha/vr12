@@ -13,7 +13,7 @@ export default defineConfig({
   
   base: '/',
 
-  server:{proxy:{"/api/v1": { target: "http://localhost:5173/",    
+  server:{proxy:{"/api/v1": { target: "http://127.0.0.1:5173/",    
                               changeOrigin: true,
                               secure: false,
                               ws: true, 
