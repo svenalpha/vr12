@@ -29,10 +29,7 @@ export async function createServer(
     ? fs.readFileSync(resolve('dist/client/index.html'), 'utf-8')
     : ''
 
-    app.get("/api/v1",(req,res) =>{
-      res.send("hello world via proxyyyggyyyyy ");
-  
-  });    
+    
 
   app.get("/userz",(req,res) => 
   {res.send([{
@@ -130,6 +127,14 @@ export async function createServer(
 
   return { app, vite }
 }
+
+app.get("/api/v1",(req,res) =>{
+  res.send("hello world via proxyyyggyyyyy ");
+
+});  
+
+
+
 
 if (!isTest) {
   createServer().then(({ app }) =>

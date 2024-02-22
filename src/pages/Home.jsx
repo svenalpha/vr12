@@ -6,7 +6,7 @@ import { multiplyAndAdd } from '../multiply'
 export default function Home() {
   return (
     <>
-      <h1>vr12        Home          no 2      17:49     20/02/2024 </h1>
+      <h1>vr12        Home          no 3      18:08     20/02/2024 </h1>
       <div>{addAndMultiply(1, 2, 3)}</div>   
       <div>{multiplyAndAdd(1, 2, 3)}</div>  
     </>
