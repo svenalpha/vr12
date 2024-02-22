@@ -2,6 +2,7 @@ import { jsxs, Fragment, jsx } from "react/jsx-runtime";
 import ReactDOMServer from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server.mjs";
 import { useState, useEffect } from "react";
+import axios from "axios";
 import { Link, Routes, Route } from "react-router-dom";
 function multiply(a, b) {
   return a * b;
@@ -21,7 +22,12 @@ function About() {
     /* @__PURE__ */ jsx("h1", { children: "About" }),
     /* @__PURE__ */ jsx("h4", { className: "strClass", children: "inside change no.  21 express installed globally" }),
     /* @__PURE__ */ jsx("div", { children: addAndMultiply(1, 2, 3) }),
-    /* @__PURE__ */ jsx("div", { children: multiplyAndAdd(1, 2, 3) })
+    /* @__PURE__ */ jsx("div", { children: multiplyAndAdd(1, 2, 3) }),
+    "         ",
+    /* @__PURE__ */ jsx("h4", { children: "above GetEntries" }),
+    /* @__PURE__ */ jsx("h4", { children: "above GetEntries" }),
+    /* @__PURE__ */ jsx(GetEntries, {}),
+    /* @__PURE__ */ jsx("h4", { children: "below GetEntries" })
   ] });
 }
 const __vite_glob_0_0 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
@@ -91,10 +97,30 @@ const __vite_glob_0_3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.def
   __proto__: null,
   default: Home
 }, Symbol.toStringTag, { value: "Module" }));
-function app_annexe() {
-  return /* @__PURE__ */ jsx("div", { children: "inside div of app_annexe No. 2" });
+function ToProxy() {
+  const [data, setData] = useState();
+  const urlProxy = "/api/v1";
+  function getData() {
+    axios.get(urlProxy).then((res) => setData(res.data)).catch((error) => {
+      console.log("catch error = ", error);
+    });
+  }
+  useEffect(() => {
+    getData();
+  }, []);
+  return /* @__PURE__ */ jsxs(Fragment, { children: [
+    /* @__PURE__ */ jsx("h1", { children: "ToProxy   xxx" }),
+    /* @__PURE__ */ jsxs("p", { children: [
+      "data : ",
+      data
+    ] })
+  ] });
 }
-const pages = /* @__PURE__ */ Object.assign({ "./pages/About.jsx": __vite_glob_0_0, "./pages/Env.jsx": __vite_glob_0_1, "./pages/Extra.jsx": __vite_glob_0_2, "./pages/Home.jsx": __vite_glob_0_3 });
+const __vite_glob_0_4 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: ToProxy
+}, Symbol.toStringTag, { value: "Module" }));
+const pages = /* @__PURE__ */ Object.assign({ "./pages/About.jsx": __vite_glob_0_0, "./pages/Env.jsx": __vite_glob_0_1, "./pages/Extra.jsx": __vite_glob_0_2, "./pages/Home.jsx": __vite_glob_0_3, "./pages/ToProxy.jsx": __vite_glob_0_4 });
 const routes = Object.keys(pages).map((path) => {
   const name = path.match(/\.\/pages\/(.*)\.jsx$/)[1];
   return {
@@ -117,7 +143,6 @@ function App() {
     /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("nav", { children: /* @__PURE__ */ jsx("ul", { children: routes.map(({ name, path }) => {
       return /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: path, children: name }) }, path);
     }) }) }) }),
-    app_annexe(),
     /* @__PURE__ */ jsx(Routes, { children: routes.map(({ path, component: RouteComp }) => {
       console.log("RouteComp = ", RouteComp);
       return /* @__PURE__ */ jsx(Route, { path, element: /* @__PURE__ */ jsx(RouteComp, {}) }, path);
