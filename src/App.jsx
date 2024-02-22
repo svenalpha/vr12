@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 
 import { Link, Route, Routes, Outlet } from 'react-router-dom'
-import { app_annexe } from './app_annexe'
+//import { app_annexe } from './app_annexe'
 
 // Auto generates routes from files under ./pages
 // https://vitejs.dev/guide/features.html#glob-import
@@ -43,24 +43,6 @@ if (!Show) {return null}
 </nav>      
  </div>
     
-
-
-
- {/* 
-<nav>
-  <ul>
-  <li><Link to="/">Home </Link></li>
-  <li><Link to="/about">About</Link></li>
-  <li><Link to="/env">Env</Link></li>
-  <li><Link to="/extra">Extra</Link></li>
-  </ul> 
-</nav>    
-      */}    
- {app_annexe()}   
-      
-
-
-
 <Routes>
         {routes.map(({ path, component: RouteComp }) => {
           console.log("RouteComp = ",RouteComp);
@@ -68,14 +50,7 @@ if (!Show) {return null}
         })}
       </Routes>
        
-{/*        
- <Routes>
-  <Route key="/" path="/" element={<Home />} />
-  <Route key="/About" path="/About" element={<About />} />
-  <Route key="/Env" path="/Env" element={<Env />} />
-  <Route key="/Extra" path="/Extra" element={<Extra />} />
- </Routes>
-    */}
+
 
 
     </>)
