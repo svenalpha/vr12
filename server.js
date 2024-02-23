@@ -2,6 +2,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import express from 'express'
+import mongoose from 'mongoose';
+import 'dotenv/config';
+
 /*  import express from '../vr08/node_modules/express/lib/express.js';   */
 
 
@@ -134,12 +137,37 @@ app.get("/api/v1",(req,res) =>{
 });  
 
 
+let api_key = process.env['MONGO_URI_FROM_ENV'];
+
+if (!isTest)
+  {
+//mongoose.connect("mongodb+srv://userx:6j5pbHRxwLanqaq4@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority", {UseNewUrlParser: true,UseUnifiedTopology:true})
+mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})
+.then(createServer().then(({ app }) =>//{app.listen(5173); //ie localhost:3333/3334   // 5173        
+                                      // console.log("with (!isTest) connected to daaaata base");
+                                      //}                                                                            
+                                      app.listen(process.env.PORT, () => {
+                                        console.log('http://localhost:5173 with (!isTest) connected to daaaata base. PORT =  ??')
+                                      }),
+                         )
+     )                                                                      
+ .catch((err)=>console.log("MongoDB connect error = ",err));
+  }
+//  else    //  ie (isTest)
+//  {mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})                                                                                                                                       
+//    .then((result)=>{app.listen(process.env.PORT || 3334); //ie localhost:3333/3334   // 5173        
+//                     console.log("connected to daaaata base");
+//                    })
+//    .catch((err)=>console.log(err));
+//  }  // end   if (!isTest)
+//
 
 
-if (!isTest) {
-  createServer().then(({ app }) =>
-    app.listen(5173, () => {
-      console.log('http://localhost:5173')
-    }),
-  )
-}
+
+//if (!isTest) {
+//  createServer().then(({ app }) =>
+//    app.listen(5173, () => {
+//      console.log('http://localhost:5173')
+//    }),
+//  )
+//}
