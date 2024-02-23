@@ -131,8 +131,8 @@ export async function createServer(
   return { app, vite }
 }
 
-app.get("/api/v1",(req,res) =>{
-  res.send("hello world via proxyyyggyyyyy ");
+app.get("/apixx",(req,res) =>{
+  res.send("hello world via proxyyyggyyyyy WITH apixx");
 
 });  
 
