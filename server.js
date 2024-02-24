@@ -136,6 +136,10 @@ app.get("/apixx",(req,res) =>{
 
 });  
 
+app.get("/test99",(req,res) =>{
+  res.send("hello world via proxyyyggyyyyy WITH apixx in test99");
+
+}); 
 
 let api_key = process.env['MONGO_URI_FROM_ENV'];
 

@@ -8,7 +8,7 @@ import axios from "axios";
 
 export default function ToProxy() {
 const [data,setData] = useState();
-const urlProxy = "/apixx";  
+const urlProxy = "/apixx/test99";  
 
 function getData(){
   axios.get(urlProxy)
