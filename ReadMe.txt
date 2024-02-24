@@ -23,7 +23,7 @@ provoked  an error. It was changed to:
 do:    npm run dev   //  for development version     
 do:  npm run build  // for production version (ie creates dist directory)
 difficulty with preview of build version, at command prompt did:
-NODE_ENV=production node server  // which seemed to work correctly 
+ NODE_ENV=production node server // which seemed to work correctly 
 
 error message: expected server HTML to contain a amatchin <NAV> in <DIV>
 
