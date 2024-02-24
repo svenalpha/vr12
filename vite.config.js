@@ -13,8 +13,8 @@ export default defineConfig({
   
   base: '/',
 
-  server:{proxy:{"/apixx": { //target: "http://192.0.0.1:5173",  
-                             target: "https://vr12.onrender.com",
+  server:{proxy:{"/apixx": { target: "http://192.0.0.1:5173",  
+                             //target: "https://vr12.onrender.com",
                               changeOrigin: true,
                               secure: false,
                               ws: true, 
