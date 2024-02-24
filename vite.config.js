@@ -14,7 +14,7 @@ export default defineConfig({
   base: '/',
 
   server:{proxy:{"/apixx": { //target: "http://localhost:5173",  
-                             target: "https://vr12.onrender.com",
+                             target: "https://vr12.onrender.com/apixx",
                               changeOrigin: true,
                               secure: false,
                               ws: true, 
