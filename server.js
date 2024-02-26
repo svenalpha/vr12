@@ -89,11 +89,7 @@ export async function createServer(
     )
   }  
 
-
-
-
-
-  
+ 
   
   app.use('*', async (req, res) => {
     try {
