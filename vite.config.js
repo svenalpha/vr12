@@ -14,12 +14,12 @@ export default defineConfig({
   base: '/',
 
   server:{
-          proxy:{"/apixx": { target: "http://127.0.0.1:5173",  
+          proxy:{"/apixx": { target: "http://127.0.0.1:8080",  
                              //target: "https://vr12.onrender.com",
                               changeOrigin: true,
                               secure: false,
                               ws: true, 
-                              rewrite: (path) => path.replace(/^\/apixx/,"apixx"),
+                              rewrite: (path) => path.replace(/^\/apixx/,""),
 
                               configure: (proxy, _options) => {
                                 proxy.on('error', (err, _req, _res) => {
