@@ -35,21 +35,7 @@ export async function createServer(
 
     
 
-  app.get("/userz",(req,res) => 
-  {res.send([{
-    id: 1,
-    name: "John Doe",      
-    age: 43 
-             },
-             {
-   id: 2,
-   name: "Jane Dough",      
-   age: 26               
-             }])    
-                          
-  }                             
-        );   
-
+  
 
   app.get("/message", (_, res) => res.send("Hello from express!"));
 
@@ -89,7 +75,7 @@ export async function createServer(
     )
   }  
 
- 
+  
   
   app.use('*', async (req, res) => {
     try {
@@ -126,14 +112,31 @@ export async function createServer(
   })
 
   return { app, vite }
-}
+}  
+
+app.get("/userz",(req,res) => 
+  {res.send([{
+    id: 1,
+    name: "John Doe",      
+    age: 43 
+             },
+             {
+   id: 2,
+   name: "Jane Dough",      
+   age: 26               
+             }])    
+                          
+  }                             
+        );   
+
+
 
 app.get("/apixx",(req,res) =>{
   res.send("hello world via proxyyyggyyyyy WITH apixx");
 
 });  
 
-app.get("/test99",(req,res) =>{
+app.get("/apixx/test99",(req,res) =>{
   res.send("hello world via proxyyyggyyyyy WITH apixx in test99");
 
 }); 
@@ -144,11 +147,12 @@ if (!isTest)
   {
 //mongoose.connect("mongodb+srv://userx:6j5pbHRxwLanqaq4@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority", {UseNewUrlParser: true,UseUnifiedTopology:true})
 mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})
-.then(createServer().then(({ app }) =>//{app.listen(5173); //ie localhost:3333/3334   // 5173        
+.then(createServer().then(({ app }) =>//   {app.listen(5173); //ie localhost:3333/3334   // 5173        
                                       // console.log("with (!isTest) connected to daaaata base");
                                       //}                                                                            
                                       app.listen(process.env.PORT, () => {
-                                        console.log('http://localhost:5173 with (!isTest) connected to daaaata base. PORT =  ??')
+                                        const port =process.env.PORT;
+                                        console.log('http://localhost:5173 with (!isTest) connected to daaaata base. process.env.POR = , port = ', process.env.PORT , port)
                                       }),
                          )
      )                                                                      
