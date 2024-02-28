@@ -4,14 +4,14 @@ import { fileURLToPath } from 'node:url';
 import express from 'express'
 import mongoose from 'mongoose';
 import 'dotenv/config';
-
+import { router } from "./src/routes/theRoutes.js";
 
 /*  import express from '../vr08/node_modules/express/lib/express.js';   */
 
 
 
 const app = express()
-
+app.use("/api/routes",router); 
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -117,7 +117,7 @@ export async function createServer(
 app.get("/userz",(req,res) => 
   {res.send([{
     id: 1,
-    name: "John Doe",      
+    name: "John Doooe",      
     age: 43 
              },
              {
