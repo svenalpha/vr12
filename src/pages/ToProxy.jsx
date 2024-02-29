@@ -25,15 +25,21 @@ const urlProxy3 = "/api/routes/test88";
 
 async function  getData(){
  // axios.get("apixx/userz")
-  await axios.get(urlProxy)
+  await axios.get(urlProxy,{
+    headers: {'Content-Type': 'application/json'}
+  })
   .then((res) => setData(res.data))
   .catch((error) => {console.log("urlProxy = ,catch error = ",urlProxy, error);});
 
-  await axios.get(urlProxy2)
+  await axios.get(urlProxy2,{
+    headers: {'Content-Type': 'application/json'}
+  })
   .then((res) => setData2(res.data))
   .catch((error2) => {console.log("urlProxy2 = ,catch error2 = ",urlProxy2, error2);});
 
-  await axios.get(urlProxy3)
+  await axios.get(urlProxy3,{
+    headers: {'Content-Type': 'application/json'}
+  })
   .then((res) => setData3(res.data))
 //.then(res =>{console.log("in ToProxy,urlProxy3 /test88 ",res.data);})
 .catch((error3) => {console.log("urlProxy3 = ,catch error3 = ",urlProxy3, error3);});
