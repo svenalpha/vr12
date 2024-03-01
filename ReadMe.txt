@@ -122,7 +122,7 @@ const [Show, setShow] = useState(false);
 //////  end  react hydrate error fix in app.jsx  /////
 
 
-use npx vite --host  to get http://192.168.1.5:5173
+use:   "npx vite --host"  to get http://192.168.1.5:5173
 
 
 
