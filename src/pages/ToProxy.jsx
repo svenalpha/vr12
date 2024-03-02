@@ -14,9 +14,11 @@ export default function ToProxy() {
 const [data,setData] = useState();
 const [data2,setData2] = useState();
 const [data3,setData3] = useState();
+const [data4,setData4] = useState();
 const urlProxy = "/apixx/apixx";  
 const urlProxy2 = "/apixx/test99";
 const urlProxy3 = "/api/routes/test88";
+const urlProxy4 = "/message";
 //const urlProxy4 = "http:/localhost:8080/test88";
 //const urlProxy5 = "/test88";
 //const urlProxy6 = "/api/routes/test88";
@@ -44,6 +46,12 @@ async function  getData(){
 //.then(res =>{console.log("in ToProxy,urlProxy3 /test88 ",res.data);})
 .catch((error3) => {console.log("urlProxy3 = ,catch error3 = ",urlProxy3, error3);});
 
+await axios.get(urlProxy4,{
+  headers: {'Content-Type': 'application/json'}
+})
+.then((res) => setData4(res.data))
+//.then(res =>{console.log("in ToProxy,urlProxy3 /test88 ",res.data);})
+.catch((error4) => {console.log("urlProxy3 = ,catch error3 = ",urlProxy4, error4);});
 
 
 
@@ -69,6 +77,11 @@ async function  getData(){
       <p> No 3 urlProxy3  test88   "/api/router" </p>
       <p>data : {data3}</p>
       <p>urlProxy2: {urlProxy3}</p>
+      <p>xxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+      <p> No 4 urlProxy4     "/message" </p>
+      <p>data : {data4}</p>
+      <p>urlProxy4: {urlProxy4}</p>
+
 
       
     </>

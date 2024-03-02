@@ -8,10 +8,6 @@ export default function Home() {
 
  
 
-
-
-
-
   return (
     <>
       <h1>vr12        Home          no 21      19:30    01/03/2024 </h1>
