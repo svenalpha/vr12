@@ -13,6 +13,7 @@ export default defineConfig({
   
   base: '/',
 
+  
   server:{
           proxy:{"/apixx": { //target: "https://vr12.onrender.com",
                                //target: "http://localhost:5173",
