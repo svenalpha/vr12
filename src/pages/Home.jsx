@@ -8,9 +8,10 @@ export default function Home() {
 
  
 
+
   return (
     <>
-      <h1>vr12        Home          no 21      19:30    01/03/2024 </h1>
+      <h1>vr12        Home          no 22      14:48    02/03/2024 </h1>
       <div>{addAndMultiply(1, 2, 3)}</div>   
       <div>{multiplyAndAdd(1, 2, 3)}</div>  
     </>
