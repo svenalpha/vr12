@@ -8,14 +8,18 @@ import { router } from "./src/routes/theRoutes.js";
 
 /*  import express from '../vr08/node_modules/express/lib/express.js';   */
 
-
-
-const app = express()
-app.use("/api/routes",router); 
-
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const isTest = process.env.VITEST
+
+
+// line below in wrong place see https://vitejs.dev/guide/ssr and
+// https;//www.npmjs.com/package/vite-ssr
+const app = express();  // this line placed inside createServer as  
+app.use("/api/routes",router);   // per https://vitejs.dev/guide/ssr. (Therefore  
+  //                           // presumably app.use also belongs here. 
+  
+
 
 /*  ViteExpress.config({ mode: "production" })  */
 
@@ -27,16 +31,15 @@ export async function createServer(
   isProd = process.env.NODE_ENV === 'production',
   hmrPort,
 ) {
+
+  
+                         
+
   const resolve = (p) => path.resolve(__dirname, p)
 
   const indexProd = isProd
     ? fs.readFileSync(resolve('dist/client/index.html'), 'utf-8')
     : ''
-
-    
-
-
-
 
   /**
    * @type {import('vite').ViteDevServer}
@@ -73,12 +76,12 @@ export async function createServer(
     )
   }  
 
-  
-  
+  app.get("/message", (_, res) => res.send("inside message before  app.use('*'   "));
+
+ 
   app.use('*', async (req, res) => {
 
-    app.get("/message", (_, res) => res.send("inside message in app.us('*'   "));
-
+   
     try {
       const url = req.originalUrl
 
@@ -110,63 +113,109 @@ export async function createServer(
       console.log(e.stack)
       res.status(500).end(e.stack)
     }
-  })
+  })    // end  app.use('*', async (req, res) => {
+
+//app.listen(5173);  
+//  app.listen(process.env.PORT, () => {
+//    const port =process.env.PORT;
+//    console.log('http://localhost:5173 with (!isTest) connected to daaaata base. process.env.POR = , port = ', process.env.PORT , port)
+//                                     }                           
+//            )   //  end    app.listen(process.env.PORT, () => { 
+
+
+
+//app.listen(5173);
+
+
+//mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})                                                                                                                                       
+//.then((result)=>{app.listen(process.env.PORT || 5173); //ie localhost:3333/3334   // 5173        
+//                 console.log("connected to daaaata base");
+//                })
+//.catch((err)=>console.log(err));
+
+
+
 
   return { app, vite }
-}  
-
-app.get("/userz",(req,res) => 
-  {res.send([{
-    id: 1,
-    name: "John Doooe",      
-    age: 43 
-             },
-             {
-   id: 2,
+}  //  end  export async function createServer(.......{
+                      
+                            
+/*BB*/                           
+app.get("/userz",(req,res) =>             
+  {res.send([{                    
+    id: 1,            
+    name: "John Doooe",                
+    age: 43              
+             },       
+             {              
+   id: 2,                   
    name: "Jane Dough",      
    age: 26               
-             }])    
-                          
+           }])          
   }                             
-        );   
+       );                                    
 
 
 
 app.get("/apixx",(req,res) =>{
   res.send("hello world via proxyyyggyyyyy WITH apixx");
-
 });  
+
 
 app.get("/apixx/test99",(req,res) =>{
   res.send("hello world via proxyyyggyyyyy WITH apixx in test99");
-
 }); 
+/*BB*/
 
-let api_key = process.env['MONGO_URI_FROM_ENV'];
 
-if (!isTest)
-  {
-//mongoose.connect("mongodb+srv://userx:6j5pbHRxwLanqaq4@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority", {UseNewUrlParser: true,UseUnifiedTopology:true})
-mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})
-.then(createServer().then(({ app }) =>//   {app.listen(5173); //ie localhost:3333/3334   // 5173        
-                                      // console.log("with (!isTest) connected to daaaata base");
-                                      //}                                                                            
-                                      app.listen(process.env.PORT, () => {
-                                        const port =process.env.PORT;
-                                        console.log('http://localhost:5173 with (!isTest) connected to daaaata base. process.env.POR = , port = ', process.env.PORT , port)
-                                      }),
-                         )
-     )                                                                      
- .catch((err)=>console.log("MongoDB connect error = ",err));
-  }
+
+let  api_key = process.env['MONGO_URI_FROM_ENV'];
+  /*GG*/
+  // working example for logging on to mongo db    
+  //if (!isTest)
+  //  {
+  //mongoose.connect("mongodb+srv://userx:6j5pbHRxwLanqaq4@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority", {UseNewUrlParser: true,UseUnifiedTopology:true})
+  mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})
+  .then(createServer().then(({ app }) =>//   {app.listen(5173); //ie localhost:3333/3334   // 5173        
+  // console.log("with (!isTest) connected to daaaata base");
+                                        //}                                                                            
+                                        app.listen(process.env.PORT, () => {
+                                          const port =process.env.PORT;
+                                          console.log('http://localhost:5173 with (!isTest) connected to daaaata base. process.env.POR = , port = ', process.env.PORT , port)
+                                        }),
+                           )
+       )                                                                      
+   .catch((err)=>console.log("MongoDB connect error = ",err));
+    //}   // end if (!isTest)
+  /*GG*/
+
+
+
+
+
+
+
+//app.listen(5173);  
+/*KK
+  app.listen(process.env.PORT, () => {
+    const port =process.env.PORT;
+    console.log('http://localhost:5173 with (!isTest) connected to daaaata base. process.env.POR = , port = ', process.env.PORT , port)
+                                     }                           
+            )   //  end    app.listen(process.env.PORT, () => { 
+KK*/
+
+
+
+/*YY
 //  else    //  ie (isTest)
-//  {mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})                                                                                                                                       
-//    .then((result)=>{app.listen(process.env.PORT || 3334); //ie localhost:3333/3334   // 5173        
-//                     console.log("connected to daaaata base");
-//                    })
-//    .catch((err)=>console.log(err));
+//  {
+     mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})                                                                                                                                       
+    .then((result)=>{app.listen(process.env.PORT || 5173); //ie localhost:3333/3334   // 5173        
+                     console.log("connected to daaaata base");
+                    })
+    .catch((err)=>console.log(err));
 //  }  // end   if (!isTest)
-//
+YY*/
 
 
 

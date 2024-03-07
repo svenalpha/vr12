@@ -123,7 +123,7 @@ const [Show, setShow] = useState(false);
 
 
 use:   "npx vite --host"  to get http://192.168.1.5:5173
-
+localhost:24678
 
 
 

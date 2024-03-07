@@ -5,9 +5,12 @@
 //import UseEffectFetchData from "../UseEffectFetchData";
 //import { Link, Route, Routes } from "react-router-dom";
 import { useEffect,useState } from "react";  
-import axios from "axios";
+//import axios from "axios";
+//import    apiax     from "../services";
 //import { router } from "../routes/theRoutes.js";
-
+//import axios, * as others from "axios";
+//import * as axios from "axios";
+import axios from "axios";
 //   import { test88 } from "../routes/theRoutes"
 
 export default function ToProxy() {
@@ -15,9 +18,10 @@ const [data,setData] = useState();
 const [data2,setData2] = useState();
 const [data3,setData3] = useState();
 const [data4,setData4] = useState();
+const [data5,setData5] = useState();
 const urlProxy = "/apixx/apixx";  
-const urlProxy2 = "/apixx/test99";
-const urlProxy3 = "/api/routes/test88";
+const urlProxy2 = "/apixx/test99";     //  proxy   
+const urlProxy3 = "/api/routes/test88";  // using router
 const urlProxy4 = "/message";
 //const urlProxy4 = "http:/localhost:8080/test88";
 //const urlProxy5 = "/test88";
@@ -26,7 +30,17 @@ const urlProxy4 = "/message";
 
 
 async function  getData(){
- // axios.get("apixx/userz")
+
+  const apiax = () => {  axios.create({
+    baseURL: process.env.REACT_APP_BASE_URL || "http://localhost:5173",
+  });          
+                      };      
+                      
+    
+
+
+/*UU*/  
+ axios.get("apixx/userz")
   await axios.get(urlProxy,{
     headers: {'Content-Type': 'application/json'}
   })
@@ -46,12 +60,48 @@ async function  getData(){
 //.then(res =>{console.log("in ToProxy,urlProxy3 /test88 ",res.data);})
 .catch((error3) => {console.log("urlProxy3 = ,catch error3 = ",urlProxy3, error3);});
 
+
+/*UU*/
+
 await axios.get(urlProxy4,{
   headers: {'Content-Type': 'application/json'}
 })
 .then((res) => setData4(res.data))
 //.then(res =>{console.log("in ToProxy,urlProxy3 /test88 ",res.data);})
 .catch((error4) => {console.log("urlProxy3 = ,catch error3 = ",urlProxy4, error4);});
+
+
+/*ZZ*/ 
+//const response =  await apiax.get("/message");
+//setData5(response);
+
+await apiax.get("/message",{
+  headers: {'Content-Type': 'application/json'}
+})
+.then((res) => setData5(res.data))
+.then(res =>{console.log("in ToProxy,urlProxy3 /test88 ",res.data);})
+.catch((error5) => {console.log("urlProxy5 = ,catch error5 = ",urlProxy4, error5);});
+/*ZZ*/
+
+//await apiax({method: 'GET',
+              //url: "/api/getWorkout", 
+              //url: "http://localhost:5173/getWorkouts", 
+              //url: "https://jasnplaceholder.typicode.com/todos", 
+//              withCredentials: false,
+//              params: { _limit: 2 }, 
+           //data: JSON.stringify(fetchOptions.data),
+           //responseType: 'arraybuffer',
+           //responseEncoding: 'binary',
+//           headers: {//'Content-Type': 'application/vnd.api+json',
+//                     // 'Content-Type': 'text/plain;charset=ISO-8859-15',
+//                     'Content-Type': 'application/vnd.api+json;text/plain;charset=ISO-8859-15',
+//                      Accept: 'application/vnd.api+json',
+//                    }
+            //config: {params: {_limit: 2 }},        
+                     
+//                  })      
+
+
 
 
 
@@ -82,9 +132,11 @@ await axios.get(urlProxy4,{
       <p> No 4 urlProxy4     "/message" </p>
       <p>data : {data4}</p>
       <p>urlProxy4: {urlProxy4}</p>
-
-
-      
+      <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+      <p> No 5    /message     from   apiax            </p>
+      <p>data : {data5}</p>
+      <p>urlProxy5: no proxy  </p>
+     
     </>
   )
 }
