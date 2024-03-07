@@ -11,7 +11,7 @@ import { useEffect,useState } from "react";
 //import axios, * as others from "axios";
 //import * as axios from "axios";
 import axios from "axios";
-//   import { test88 } from "../routes/theRoutes"
+//import { test88 } from "../routes/theRoutes"
 
 export default function ToProxy() {
 const [data,setData] = useState();

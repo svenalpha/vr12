@@ -11,17 +11,18 @@ import { router } from "./src/routes/theRoutes.js";
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const isTest = process.env.VITEST
-
+ ViteExpress.config({ mode: "production" })  
 
 // line below in wrong place see https://vitejs.dev/guide/ssr and
 // https;//www.npmjs.com/package/vite-ssr
 const app = express();  // this line placed inside createServer as  
 app.use("/api/routes",router);   // per https://vitejs.dev/guide/ssr. (Therefore  
   //                           // presumably app.use also belongs here. 
-  
+ 
+if (process.env.NODE_ENV =='production'){ 
+app.use(express.static("../dist/"));
+}
 
-
-/*  ViteExpress.config({ mode: "production" })  */
 
 
 process.env.MY_CUSTOM_SECRET = 'API_KEY_qwertyuiop'
