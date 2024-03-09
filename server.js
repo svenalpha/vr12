@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import express from 'express'
 import mongoose from 'mongoose';
 import 'dotenv/config';
+import cors from "cors";
 import { router } from "./src/routes/theRoutes.js";
 
 /*  import express from '../vr08/node_modules/express/lib/express.js';   */
@@ -11,11 +12,27 @@ import { router } from "./src/routes/theRoutes.js";
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const isTest = process.env.VITEST
- ViteExpress.config({ mode: "production" })  
+ /* ViteExpress.config({ mode: "production" }) */
+ 
+ 
 
 // line below in wrong place see https://vitejs.dev/guide/ssr and
 // https;//www.npmjs.com/package/vite-ssr
 const app = express();  // this line placed inside createServer as  
+app.use(cors());
+app.use(function(req,res,next){
+      console.log("in server.js app.use res.headers");  
+      res.header("Access-Control-Allow-Origin","*");
+      res.header("Access-Control-Allow-Methods","GET,HEAD,OPTIONS,POST,PUT,DELETE");
+      res.header("Access-Control-Allow-Headers","Origin,X-Requested-With,Content-Type,Accept,Authorization");
+      if ('OPTIONS' == req.method) {res.send(200);}
+      next();
+                              } 
+       );
+
+
+
+
 app.use("/api/routes",router);   // per https://vitejs.dev/guide/ssr. (Therefore  
   //                           // presumably app.use also belongs here. 
  
@@ -23,7 +40,7 @@ if (process.env.NODE_ENV =='production'){
 app.use(express.static("../dist/"));
 }
 
-
+console.log(" import.meta.url ", import.meta.url);
 
 process.env.MY_CUSTOM_SECRET = 'API_KEY_qwertyuiop'
 

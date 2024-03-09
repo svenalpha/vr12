@@ -30,6 +30,7 @@ const urlProxy4 = "/message";
 
 
 async function  getData(){
+  console.log(" import.meta.url ", import.meta.url);
 
   const apiax = () => {  axios.create({
     baseURL: process.env.REACT_APP_BASE_URL || "http://localhost:5173",
