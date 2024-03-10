@@ -50,7 +50,7 @@ export async function createServer(
   hmrPort,
 ) {
 
-  
+  console.log(" in server, after root=process.cwd() ", root);
                          
 
   const resolve = (p) => path.resolve(__dirname, p)
