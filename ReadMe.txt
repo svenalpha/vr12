@@ -126,4 +126,8 @@ use:   "npx vite --host"  to get http://192.168.1.5:5173
 localhost:24678
 
 
+see React_Router_Data_Fetching_ex from store N Go disc
+
+
+
 

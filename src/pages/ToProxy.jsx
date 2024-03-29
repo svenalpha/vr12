@@ -29,12 +29,18 @@ const urlProxy4 = "/message";
 //const urlProxy7 = "http:/localhost:8080/api/routes/test88";
 
 
+        
 async function  getData(){
-  console.log(" import.meta.url ", import.meta.url);
+  //var  imu, per, vbaseURL;
+  //console.log(" in ToProxy, import.meta.url ", import.meta.url);
+  //console.log(" in ToProxy, process.env.REACT_APP_BASE_URL =  ", process.env.REACT_APP_BASE_URL);
+  //console.log(" in ToProxy, baseURL =", baseURL);
 
   const apiax = () => {  axios.create({
     baseURL: process.env.REACT_APP_BASE_URL || "http://localhost:5173",
-  });          
+      
+  });
+            
                       };      
                       
     
@@ -118,6 +124,7 @@ await apiax.get("/message",{
   return (
     <>
       <h1>ToProxy   xxx</h1>
+      <h3></h3>
       <p> No. 1 urlProxy   "/apixx/apixx" </p>
       <p>data : {data}</p>
       <p>urlProxy : {urlProxy}</p>
