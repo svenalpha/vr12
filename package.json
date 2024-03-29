@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "proxy": "http://localhost:5173",
+  "proxy": "https://vr12.onrender.com",
   "scripts": {
     "dev": "node server",
     "build": "npm run build:client && npm run build:server",
