@@ -95,8 +95,23 @@ export async function createServer(
   }  
 
   app.get("/message", (_, res) => res.send("inside message before  app.use('*'   "));
+  app.get("/userz3",(req,res,next) =>             
+  {res.send([{                    
+    id: 1,            
+    name: "John Doooe",                
+    age: 43              
+             },       
+             {              
+   id: 2,                   
+   name: "Jane Dough",      
+   age: 26               
+           }]); 
+         next();            
+  }                             
+       );                      
 
- 
+
+
   app.use('*', async (req, res) => {
 
    
@@ -162,16 +177,21 @@ export async function createServer(
 app.get("/userz",(req,res) =>             
   {res.send([{                    
     id: 1,            
-    name: "John Doooe",                
-    age: 43              
+    name: "Billy Smith",                
+    age: 87              
              },       
              {              
    id: 2,                   
-   name: "Jane Dough",      
-   age: 26               
+   name: "Brenda Jones",      
+   age: 74               
            }])          
-  }                             
+  }                              
        );                                    
+
+              
+     
+
+
 
 
 

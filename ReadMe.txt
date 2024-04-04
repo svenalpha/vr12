@@ -128,6 +128,7 @@ localhost:24678
 
 see React_Router_Data_Fetching_ex from store N Go disc
 
-
-
+Branch                     main
+Build Command             npm run build    
+Publish Directory           ./dist/client/
 
