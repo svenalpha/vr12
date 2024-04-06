@@ -109,6 +109,55 @@ export async function createServer(
          next();            
   }                             
        );                      
+       app.get("/userz4",(req,res,next) =>             
+       {res.send([{                    
+         id: 1,            
+         name: "John Doooe",                
+         age: 43              
+                  },  
+                  
+                  {                    
+                    id: 2,            
+                    name: "Peter Smith",                
+                    age: 52              
+                  },                   
+                  {              
+        id: 3,                   
+        name: "Jane Dough",      
+        age: 26               
+                }]); 
+              next();            
+       }                             
+            );              
+            app.get("/userz5",(req,res,next) =>             
+            {res.send([{                    
+              id: 1,            
+              name: "John Doooe",                
+              age: 43              
+                       },
+                       {                    
+                        id: 2,            
+                        name: "Billy Jones",                
+                        age: 51              
+                                 },                      
+                                 {                    
+                                  id: 3,            
+                                  name: "Frankie Boggs",                
+                                  age: 62              
+                                           },                       
+
+                       {              
+             id: 4,                   
+             name: "Jane Dough",      
+             age: 26               
+                     }]); 
+                   next();            
+            }                             
+                 );              
+
+
+
+
 
 
 

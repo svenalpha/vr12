@@ -3,8 +3,8 @@ import { StaticRouter , Outlet} from 'react-router-dom/server'
 import { App } from './App'
 
 export function render(url, context) {   
-  console.log(" url = ",url);
-  console.log("context = ",context); 
+  console.log(" in entry-server, function render, url = ",url);
+  console.log("in entry-server, function render, context = ",context); 
   console.log('in entry-server.....hydrated hydrated hydrated')
   return ReactDOMServer.renderToString(
     <StaticRouter location={url} context={context}  >
