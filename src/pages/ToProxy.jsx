@@ -20,8 +20,8 @@ const [data3,setData3] = useState();
 const [data4,setData4] = useState();
 const [data5,setData5] = useState();
 const urlProxy = "/apixx/apixx";  
-//const urlProxy2 = "/apixx/test99";     //  proxy   
-const urlProxy2 = "/opt/render/project/src/dist/server/message/entry-server/apixx/test99";
+const urlProxy2 = "/apixx/test99";     //  proxy   
+//const urlProxy2 = "/opt/render/project/src/dist/server/message/entry-server/apixx/test99";
 const urlProxy3 = "/api/routes/test88";  // using router
 //const urlProxy4 = "/message";
 const urlProxy4 ="/opt/render/project/src/dist/server/message/entry-server/message";
@@ -62,12 +62,14 @@ async function  getData(){
   .then((res) => setData2(res.data))
   .catch((error2) => {console.log("urlProxy2 = ,catch error2 = ",urlProxy2, error2);});
 
+
   await axios.get(urlProxy3,{
     headers: {'Content-Type': 'application/json'}
   })
   .then((res) => setData3(res.data))
 //.then(res =>{console.log("in ToProxy,urlProxy3 /test88 ",res.data);})
 .catch((error3) => {console.log("urlProxy3 = ,catch error3 = ",urlProxy3, error3);});
+
 
 
 /*UU*/
@@ -137,7 +139,7 @@ ZZ*/
       <p>xxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
       <p> No 3 urlProxy3  test88   "/api/router" </p>
       <p>data : {data3}</p>
-      <p>urlProxy2: {urlProxy3}</p>
+      <p>urlProxy3: {urlProxy3}</p>
       <p>xxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
       <p> No 4 urlProxy4     "/message" </p>
       <p>data : {data4}</p>

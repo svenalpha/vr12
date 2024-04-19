@@ -56,7 +56,7 @@ export async function createServer(
   const resolve = (p) => path.resolve(__dirname, p)
 
   const indexProd = isProd
-    ? fs.readFileSync(resolve('dist/client/index.html'), 'utf-8')
+    ? fs.readFileSync(resolve('dist/server/client/index.html'), 'utf-8')
     : ''
 
   /**
@@ -268,7 +268,7 @@ let  api_key = process.env['MONGO_URI_FROM_ENV'];
                                         //}                                                                            
                                         app.listen(process.env.PORT || 5173, () => {
                                           const port =process.env.PORT;
-                                          console.log('http://localhost:5173 with (!isTest) connected to daaaata base. process.env.POR = , port = ', process.env.PORT , port)
+                                          console.log('server started http://localhost:5173 with (!isTest) connected to daaaata base. process.env.POR = , port = ', process.env.PORT , port)
                                         }),
                            )
        )                                                                      
