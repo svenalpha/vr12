@@ -37,7 +37,7 @@ app.use("/api/routes",router);   // per https://vitejs.dev/guide/ssr. (Therefore
   //                           // presumably app.use also belongs here. 
  
 if (process.env.NODE_ENV =='production'){ 
-app.use(express.static("../dist/"));
+app.use(express.static("client"));
 }
 
 console.log(" import.meta.url ", import.meta.url);
