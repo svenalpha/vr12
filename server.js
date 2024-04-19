@@ -35,9 +35,13 @@ app.use(function(req,res,next){
 
 app.use("/api/routes",router);   // per https://vitejs.dev/guide/ssr. (Therefore  
   //                           // presumably app.use also belongs here. 
- 
+
+
+
+ // app.use(express.static(path.join(__dirname, "..", "dist")));. Your pat
+
 if (process.env.NODE_ENV =='production'){ 
-app.use(express.static("client"));
+  app.use(express.static("server/client"));
 }
 
 console.log(" import.meta.url ", import.meta.url);
