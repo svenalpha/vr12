@@ -266,7 +266,7 @@ let  api_key = process.env['MONGO_URI_FROM_ENV'];
   .then(createServer().then(({ app }) =>//   {app.listen(5173); //ie localhost:3333/3334   // 5173        
   // console.log("with (!isTest) connected to daaaata base");
                                         //}                                                                            
-                                        app.listen(process.env.PORT, () => {
+                                        app.listen(process.env.PORT || 5173, () => {
                                           const port =process.env.PORT;
                                           console.log('http://localhost:5173 with (!isTest) connected to daaaata base. process.env.POR = , port = ', process.env.PORT , port)
                                         }),
