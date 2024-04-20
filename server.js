@@ -41,10 +41,20 @@ app.use("/api/routes",router);   // per https://vitejs.dev/guide/ssr. (Therefore
  // app.use(express.static(path.join(__dirname, "..", "dist")));. Your pat
 
 if (process.env.NODE_ENV =='production'){ 
-  app.use(express.static("server/client"));
+  //app.use(express.static("dist/server/client"));
+  
 }
+app.use(express.static(path.join(__dirname, "dist\\server", "client")));
 
-console.log(" import.meta.url ", import.meta.url);
+
+console.log("path.join(__dirname, '..', 'dist')  =    ",path.join(__dirname, "..", "dist"));
+console.log("path.join(__dirname, '', 'dist')  =    ",path.join(__dirname, "", "dist"));
+console.log("path.join(__dirname, '..', 'client')  =    ",path.join(__dirname, "..", "client"));
+console.log("path.join(__dirname, '', 'client')  =    ",path.join(__dirname, "", "client"));
+//console.log("path.join(__dirname, '\vr12', 'client')  =    ",path.join(__dirname, "\vr12", "client"));
+console.log("path.join(__dirname, 'dist\\server', 'client')  = ",path.join(__dirname, "dist\\server", "client"));
+
+//console.log(" import.meta.url ", import.meta.url);
 
 process.env.MY_CUSTOM_SECRET = 'API_KEY_qwertyuiop'
 
