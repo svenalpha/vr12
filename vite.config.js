@@ -17,10 +17,10 @@ export default defineConfig({
   server:{
           proxy:{"/apixx": { //target : "/",
                              //target: "http://vr12.onrender.com",
-                               target: "http://localhost:5173",  // works in dev
+                              // target: "http://localhost:5173",  // works in dev
                               // target: "http://192.168.1.5:5173",  // works in dev
                                 //target: "http://127.0.0.1:8080",  
-                             //target: "https://vr12.onrender.com",
+                             target: "https://vr12.onrender.com",
                               changeOrigin: true,
                               secure: false,
                               ws: true, 
