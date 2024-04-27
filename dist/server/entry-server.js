@@ -103,12 +103,11 @@ function ToProxy() {
   const [data3, setData3] = useState();
   const [data4, setData4] = useState();
   const [data5, setData5] = useState();
-  const urlProxy = "/apixx/apixx";
+  const urlProxy = "/apixx";
   const urlProxy2 = "/apixx/test99";
   const urlProxy3 = "/api/routes/test88";
   const urlProxy4 = "/opt/render/project/src/dist/server/message/entry-server/message";
   async function getData() {
-    axios.get("apixx/userz");
     await axios.get(urlProxy, {
       headers: { "Content-Type": "application/json" }
     }).then((res) => setData(res.data)).catch((error) => {
@@ -136,7 +135,7 @@ function ToProxy() {
   return /* @__PURE__ */ jsxs(Fragment, { children: [
     /* @__PURE__ */ jsx("h1", { children: "ToProxy   xxx" }),
     /* @__PURE__ */ jsx("h3", {}),
-    /* @__PURE__ */ jsx("p", { children: ' No. 1 urlProxy   "/apixx/apixx" ' }),
+    /* @__PURE__ */ jsx("p", { children: ' No. 1 urlProxy   "/apixx" ' }),
     /* @__PURE__ */ jsxs("p", { children: [
       "data : ",
       data

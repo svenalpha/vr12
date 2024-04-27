@@ -19,6 +19,12 @@ const isTest = process.env.VITEST
 // line below in wrong place see https://vitejs.dev/guide/ssr and
 // https;//www.npmjs.com/package/vite-ssr
 const app = express();  // this line placed inside createServer as  
+
+
+app.use("/api/routes",router);   // per https://vitejs.dev/guide/ssr. (Therefore  
+  //                           // presumably app.use also belongs here. 
+app.use(express.static(path.join(__dirname, "dist\\server", "client")));
+
 app.use(cors());
 app.use(function(req,res,next){
       console.log("in server.js app.use res.headers");  
@@ -30,11 +36,17 @@ app.use(function(req,res,next){
                               } 
        );
 
-
-
-
-app.use("/api/routes",router);   // per https://vitejs.dev/guide/ssr. (Therefore  
-  //                           // presumably app.use also belongs here. 
+       app.get("/apixx",(req,res) =>{
+        res.send("hello world via proxyyyggyyyyy WITH apixx");
+      });  
+      
+      
+      app.get("/apixx/test99",(req,res) =>{
+        res.send("hello world via proxyyyggyyyyy WITH apixx in test99");
+      }); 
+      /*BB*/
+      
+      
 
 
 
@@ -44,7 +56,7 @@ if (process.env.NODE_ENV =='production'){
   //app.use(express.static("dist/server/client"));
   
 }
-app.use(express.static(path.join(__dirname, "dist\\server", "client")));
+
 
 
 console.log("path.join(__dirname, '..', 'dist')  =    ",path.join(__dirname, "..", "dist"));
@@ -251,24 +263,7 @@ app.get("/userz",(req,res) =>
   }                              
        );                                    
 
-              
-     
-
-
-
-
-
-app.get("/apixx",(req,res) =>{
-  res.send("hello world via proxyyyggyyyyy WITH apixx");
-});  
-
-
-app.get("/apixx/test99",(req,res) =>{
-  res.send("hello world via proxyyyggyyyyy WITH apixx in test99");
-}); 
-/*BB*/
-
-
+ 
 
 let  api_key = process.env['MONGO_URI_FROM_ENV'];
   /*GG*/

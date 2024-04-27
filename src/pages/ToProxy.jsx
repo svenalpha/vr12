@@ -19,7 +19,7 @@ const [data2,setData2] = useState();
 const [data3,setData3] = useState();
 const [data4,setData4] = useState();
 const [data5,setData5] = useState();
-const urlProxy = "/apixx/apixx";  
+const urlProxy = "/apixx";  
 const urlProxy2 = "/apixx/test99";     //  proxy   
 //const urlProxy2 = "/opt/render/project/src/dist/server/message/entry-server/apixx/test99";
 const urlProxy3 = "/api/routes/test88";  // using router
@@ -49,7 +49,7 @@ async function  getData(){
 
 
 /*UU*/  
- axios.get("apixx/userz")
+ //axios.get("apixx/test99")
   await axios.get(urlProxy,{
     headers: {'Content-Type': 'application/json'}
   })
@@ -129,7 +129,7 @@ ZZ*/
     <>
       <h1>ToProxy   xxx</h1>
       <h3></h3>
-      <p> No. 1 urlProxy   "/apixx/apixx" </p>
+      <p> No. 1 urlProxy   "/apixx" </p>
       <p>data : {data}</p>
       <p>urlProxy : {urlProxy}</p>
       <p>xxxxxxxxxxxxxxxxxxxxxxxxxxx</p>

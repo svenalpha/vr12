@@ -4,7 +4,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 export const router = express.Router(); 
 
-       
+console.log("passing through src/route/ the routes");     
 
 /*
 router.get("/Env",(req,res)=>{ console.log("req = ",req);

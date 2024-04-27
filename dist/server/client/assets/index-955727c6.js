@@ -11092,12 +11092,11 @@ function ToProxy() {
   const [data3, setData3] = reactExports.useState();
   const [data4, setData4] = reactExports.useState();
   const [data5, setData5] = reactExports.useState();
-  const urlProxy = "/apixx/apixx";
+  const urlProxy = "/apixx";
   const urlProxy2 = "/apixx/test99";
   const urlProxy3 = "/api/routes/test88";
   const urlProxy4 = "/opt/render/project/src/dist/server/message/entry-server/message";
   async function getData() {
-    axios$1.get("apixx/userz");
     await axios$1.get(urlProxy, {
       headers: { "Content-Type": "application/json" }
     }).then((res) => setData(res.data)).catch((error) => {
@@ -11125,7 +11124,7 @@ function ToProxy() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: "ToProxy   xxx" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("h3", {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: ' No. 1 urlProxy   "/apixx/apixx" ' }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: ' No. 1 urlProxy   "/apixx" ' }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
       "data : ",
       data
