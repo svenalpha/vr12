@@ -1,5 +1,6 @@
 import { resolve } from "path"; 
 import path from "path";
+//import terser from "terser";
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 const outDiry = resolve(__dirname,"dist");  console.log("outDiry = ",outDiry);

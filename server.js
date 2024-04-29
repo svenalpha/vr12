@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import express from 'express'
 import mongoose from 'mongoose';
 import 'dotenv/config';
+//import terser from "terser";
 import cors from "cors";
 import { router } from "./src/routes/theRoutes.js";
 
