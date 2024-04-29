@@ -49,10 +49,7 @@ if (!Show) {return null}
           return <Route key={path} path={path} element={<RouteComp />}></Route>
         })}
       </Routes>
-       
-
-
-
+  
     </>)
 }
 

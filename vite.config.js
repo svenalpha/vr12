@@ -48,6 +48,15 @@ export default defineConfig({
   build: {
     outDir: "/dist/",
     emptyOutDir: true,
-    minify: false,
+    //minify: false,
+
+    minify: 'terser',
+      terserOptions: {
+        compress: {
+          drop_console: false,
+          drop_debugger: false,
+                  },                   
+                     },
+           
   },
 })
