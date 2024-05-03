@@ -21,6 +21,12 @@ const isTest = process.env.VITEST
 // https;//www.npmjs.com/package/vite-ssr
 const app = express();  // this line placed inside createServer as  
 
+app.get("/xmessage",(req,res) =>{
+  res.send("hello world in server xmessage route");
+});       
+
+
+
 
 app.use("/api/routes",router);   // per https://vitejs.dev/guide/ssr. (Therefore  
   //                           // presumably app.use also belongs here. 
@@ -40,8 +46,7 @@ app.use(function(req,res,next){
        app.get("/apixx",(req,res) =>{
         res.send("hello world via proxyyyggyyyyy WITH apixx");
       });  
-      
-      
+
       app.get("/apixx/test99",(req,res) =>{
         res.send("hello world via proxyyyggyyyyy WITH apixx in test99");
       }); 
